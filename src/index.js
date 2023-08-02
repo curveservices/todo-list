@@ -1,3 +1,3 @@
-import loadPage from "./loadPage";
+import UI from "./modules/UI";
 
-loadPage();
+document.addEventListener('DOMContentLoaded', UI.loadHomepage)
