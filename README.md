@@ -9,7 +9,7 @@
 
 ## Overview
 
-<a href="https://www.theodinproject.com/lessons/node-path-javascript-todo-list" target="blank"> Project To Do List</a> has been set as part of <a href="https://www.theodinproject.com/" target="blank">The Odin Project</a>
+<a href="https://www.theodinproject.com/lessons/node-path-javascript-todo-list" target="blank"> Project To Do List</a> has been set as part of <a href="https://www.theodinproject.com/" target="blank">The Odin Project</a>. Using webpack 
 
 ## Assets
 

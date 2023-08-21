@@ -1,6 +1,27 @@
 {
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Todo list",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curveservices/todo-list.git"
+  },
+  "author": "Paul Rossiter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/curveservices/todo-list/issues"
+  },
+  "homepage": "https://github.com/curveservices/todo-list#readme",
   "devDependencies": {
-    "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0"
   }
 }
