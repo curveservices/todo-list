@@ -1,4 +1,3 @@
-alert('hello');
  import { createToDo } from './create-todo';
  import { blankProject } from './blank-project';
  import { initialdom } from './initial-dom';
