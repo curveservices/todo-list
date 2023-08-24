@@ -13,3 +13,4 @@ const myToDo = createToDo('shopping run', 'got get shopping', '15/08/2023', 'low
 const myToDo2 = createToDo('homework', 'do odin project work', '15/08/2023', 'medium', 'yes');
 console.log('show me properies on mtToDo from index.js.....', myToDo)
 console.log('show me properties from myToDo2 from index.js....', myToDo2);
+
