@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Titillium+Web:wght@600&display=swap');
+
+:root {
+    --light-background: #ffffff;
+    --light-header: #726043;
+    --dark-background: --
+
+}
+
+*,
+*:before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    background: var(--light-background);
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    font-size: 20px;
+    gap: 2rem;
+}
+
+.bi-brightness-high-fill,
+.bi-moon,
+.fa-check-double {
+    font-size: xx-large;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+    background: var(--light-header);
+    padding: 0rem 5rem 0rem 3rem;
+
+}
+
+main  {
+    margin: 0;
+    padding: 1rem;
+}
