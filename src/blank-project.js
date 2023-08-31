@@ -3,7 +3,7 @@ export const blankProject = () => {
 
     let projectsArray = [];
     console.log('Pushing the title name of project to the projectArray...');
-    let projectTitle = "Default Project";
+    let projectTitle = "House chores";
     projectsArray.push({ projectTitle });
     console.log(projectsArray);
     return { projectsArray, projectTitle };
