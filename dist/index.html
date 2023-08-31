@@ -6,37 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="data:image/svg+xml, <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📂</text></svg>">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/e4551d0d55.js" crossorigin="anonymous"></script>
     <title>to do list</title>
 </head>
 <body>
-   <div class="content">
+    <div class="over-lay"></div>
     <header>
         <div class="title">
             <i class="fa-solid fa-check-double"></i>
             <h2>To Do List</h2>
         </div>
         <div class="switch-container">
-        <i class="bi bi-brightness-high-fill" id="toggle-dark"></i>
+            <i class="fa-solid fa-sun" id="toggle-dark"></i>
         </div>  
     </header>
 
     <main>
-        <nav>
+        <nav class="left container">
             <div class="default-project">
-                <button class="tab">Inbox</button>
-                <button class="tab">Today</button>
-                <button class="tab">This Week</button>
-            </div>
+                <div class="tab"id="inbox"><i class="fa-solid fa-inbox"></i>Inbox</div>
+                <div class="tab" id="today" ><i class="fa-solid fa-calendar-day"></i>Today</div>
+                <div class="tab" id="this-week"><i class="fa-solid fa-calendar-week"></i>This Week</div>
+            
 
             <!-- Projects -->
-            <h1>Projects</h1>
-            <div class="project-list"></div>
-            <button><i class="add-project-popup bi-plus-circle-fill" id="">Add Project</i></button>
+            <div class="project-container"></div>
+        </div>
         </nav>
+        
+        <div class="right-container">
+            <h1 class="task-title"></h1>
+            <div class="add-task-btn"><i class="fa-solid fa-circle-plus"></i>Add Task</div>
+
+            <!-- pop up modal  -->
+            <section class="popup">
+                <div class="card">
+                    <div class="head"><h1>Add new Task</h1>
+                    <div class="close"><i class="fa-solid fa-circle-xmark"></i></div>
+                    </div>
+                    <form id="form" action="#" method="get">
+                        <label for="title">Title: </label>
+                        <input type="text" id="title" name="title" placeholder="Task Title..." autocomplete="off" required/>
+                        <span class="title-error"></span>
+                        <br>
+                        <label for="description">Description: </label>
+                        <textarea rows="6" type="text" id="description" name="description" placeholder="Enter Description..." autocomplete="off" required></textarea>
+                        <span class="description-error"></span>
+                        <br>
+                        <label for="dueDate">Due Date: </label>
+                        <input type="date" id="dueDate" name="pages" autocomplete="off" required>
+                        <span class="dueDate-error"></span>
+                        <br>
+                        <label for="priority" name="priority">Priority:</label>
+                        <select name="priority" id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <span class="priority-error"></span>
+                        </select>
+                        <!-- <label for="checklist">checklist items added (if any):</label>
+                        <ul class="todo-ul"></ul> -->
+                        <br>
+                        <input class="submit" type="submit" value="submit">
+                    </form>
+            </section>
+        </div>
     </main>
-   </div>
+    
+    <footer class="footer">
+        Built by <a class="footer-link" href="https://github.com/curveservices" target="_blank">Rozla-Dev</a>
+        | <a class="footer-link" href="https://github.com/curveservices/Library" target="_blank" >
+        Source </a><i class="fa-brands fa-github"></i>
+    </footer>
+   
 <script src="./main.js"></script>
 </body>
 </html>
