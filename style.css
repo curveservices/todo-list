@@ -3,11 +3,12 @@
 :root {
     --light-background: #ffffff;
     --dark-background: #636363;
-    --light-header: #bd5ec5;
-    --opposite-light: #1eb31e;
+    --light-header: #9f41a8;
     --dark-header: #613c65;
+    --light-nav: #8d8d8d;
+    --dark-nav: #8d8d8d;
+    --opposite-light: #1eb31e;
     --opposite-dark: #5d9457;
-    --dark1-bg: #58325c;
     --error-red: #d03535;
     --button-light: #e7e7e7;
     --border-radius: 10px;
@@ -40,7 +41,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 10vw; 
+    height: 5vw; 
     background: var(--light-header);
     padding: 0rem 5rem 0rem 3rem;
 }
@@ -57,19 +58,27 @@ header {
 nav  {
     display: flex;
     flex-flow: column wrap;
-    margin: 1rem;
+    background: var(--light-nav);
+    height: 100vh;
+    margin: 0rem;
     padding: 1rem;
     
 }
 
 .default-project {
     display: flex;
-    align-items: center;
-    justify-items: center;
     flex-flow: column wrap;
+    justify-items: center;
     padding: 1em;
     gap: 1em;
-    gap: 1rem;
+}
+
+.project-container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-items: center;
+    padding: 1em;
+    gap: 1em;
 }
 
 .tab {
@@ -87,17 +96,27 @@ nav  {
 
 .tab:hover,
 .tab:active {
-    background: #e7e7e7;
-    border-radius: 10px;
+    background: #b6b6b6;
+    border-radius: var(--border-radius);
 }
 
-/* .project-container{
-    margin: 2rem 0rem;
+.add-project-popup {
+    transform: scale(0);
 }
 
 .project-list {
-    margin: 2rem 0rem;
-} */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 1rem;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
 
 .task-title {
     margin: 4rem 0rem;
@@ -113,10 +132,10 @@ nav  {
     transform: scale(0);
     transition: 0.2s ease-in-out;
     position:fixed;
-    margin: -8rem 25rem -25rem 15rem;
+    margin: -15rem 25rem -25rem 15rem;
     padding: 1.2rem;
     width: 20rem;
-    height: 85vh;
+    height: 75vh;
     border-radius: var(--border-radius);
     border: 1px solid black;
     box-shadow: var(--box-shadow);
@@ -186,6 +205,8 @@ span {
 .fa-github {
     font-size: x-large;
 }
+.fa-circle-plus {
+    transition: 1.5s ease;}
 
 /* Footer */
 footer {
@@ -195,12 +216,12 @@ footer {
     position:fixed;
     bottom: 0;
     gap: 2rem;
-    /* background: var(--light-header); */
+    background: var(--light-header);
     font-family: 'Rock Salt', sans-serif;
     font-size: 1rem;
     margin: 0;
     width: 100vw;
-    height: 8vh;
+    height: 6vh;
 }
 
 .footer-link {
