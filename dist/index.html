@@ -13,7 +13,7 @@
     <div class="over-lay"></div>
     <header>
         <div class="title">
-            <i class="fa-solid fa-check-double"></i>
+            <i class="fa-solid fa-pen-to-square"></i>
             <h2>To Do List</h2>
         </div>
         <div class="switch-container">
@@ -24,53 +24,18 @@
     <main>
         <nav class="left container">
             <div class="default-project">
-                <div class="tab"id="inbox"><i class="fa-solid fa-inbox"></i>Inbox</div>
-                <div class="tab" id="today" ><i class="fa-solid fa-calendar-day"></i>Today</div>
-                <div class="tab" id="this-week"><i class="fa-solid fa-calendar-week"></i>This Week</div>
-            
+                <button class="tab"id="inbox-button"><i class="fa-solid fa-inbox"></i>Inbox</button>
+                <button class="tab" id="today-button" ><i class="fa-solid fa-calendar-day"></i>Today</button>
+                <button class="tab" id="this-week-button"><i class="fa-solid fa-calendar-week"></i>This Week</button>
+            </div>
 
             <!-- Projects -->
-            <div class="project-container"></div>
-        </div>
+            <div class="project-container">
+                
+            </div>
         </nav>
         
-        <div class="right-container">
-            <h1 class="task-title"></h1>
-            <div class="add-task-btn"><i class="fa-solid fa-circle-plus"></i>Add Task</div>
-
-            <!-- pop up modal  -->
-            <section class="popup">
-                <div class="card">
-                    <div class="head"><h1>Add new Task</h1>
-                    <div class="close"><i class="fa-solid fa-circle-xmark"></i></div>
-                    </div>
-                    <form id="form" action="#" method="get">
-                        <label for="title">Title: </label>
-                        <input type="text" id="title" name="title" placeholder="Task Title..." autocomplete="off" required/>
-                        <span class="title-error"></span>
-                        <br>
-                        <label for="description">Description: </label>
-                        <textarea rows="6" type="text" id="description" name="description" placeholder="Enter Description..." autocomplete="off" required></textarea>
-                        <span class="description-error"></span>
-                        <br>
-                        <label for="dueDate">Due Date: </label>
-                        <input type="date" id="dueDate" name="pages" autocomplete="off" required>
-                        <span class="dueDate-error"></span>
-                        <br>
-                        <label for="priority" name="priority">Priority:</label>
-                        <select name="priority" id="priority">
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                            <span class="priority-error"></span>
-                        </select>
-                        <!-- <label for="checklist">checklist items added (if any):</label>
-                        <ul class="todo-ul"></ul> -->
-                        <br>
-                        <input class="submit" type="submit" value="submit">
-                    </form>
-            </section>
-        </div>
+        <div class="right-container"></div>
     </main>
     
     <footer class="footer">
