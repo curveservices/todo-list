@@ -10,33 +10,223 @@
     <title>to do list</title>
 </head>
 <body>
-    <div class="over-lay"></div>
+    
     <header>
-        <div class="title">
-            <i class="fa-solid fa-pen-to-square"></i>
-            <h2>To Do List</h2>
-        </div>
+        <i class="fa-solid fa-bars toggle-sidebar"></i><i class="fa-solid fa-pen-to-square"></i><h2 class="logo"></h2>To Do List</h2>
         <div class="switch-container">
             <i class="fa-solid fa-sun" id="toggle-dark"></i>
         </div>  
     </header>
 
-    <main>
-        <nav class="left container">
-            <div class="default-project">
-                <button class="tab"id="inbox-button"><i class="fa-solid fa-inbox"></i>Inbox</button>
-                <button class="tab" id="today-button" ><i class="fa-solid fa-calendar-day"></i>Today</button>
-                <button class="tab" id="this-week-button"><i class="fa-solid fa-calendar-week"></i>This Week</button>
+    
+        <nav id="sidebar" class="sidebar">
+            <div class="sidbar-project-nav">
+                <a href="#" class="sidebar-link link-inbox tab ">
+                    <i class="fa-solid fa-inbox sidebar-link link-inbox sidebar-link-icon"></i>
+                    Inbox
+                </a>
+                <a href="#" class="sidebar-link link-today tab ">
+                    <i class="fa-solid fa-calendar-day sidebar-link link-today sidebar-link-icon"></i>
+                    Today
+                </a>
+                <a href="#" class="sidebar-link link-week tab">
+                    <i class="fa-solid fa-calendar-week sidebar-link link-week sidebar-link-icon"></i>
+                    This Week
+                </a>
+                <a href="#" class="sidebar-link link-important tab">
+                    <i class="fa-solid fa-star sidebar-link link-important sidebar-link-icon"></i>
+                    Important
+                </a>
+                <a href="#" class="sidebar-link link-completed tab">
+                    <i class="fa-solid fa-check-double sidebar-link link-completed sidebar-link-icon"></i>
+                    Completed
+                </a>
             </div>
-
-            <!-- Projects -->
-            <div class="project-container">
-                
+            <!-- SIDEBAR PROJECTS -->
+            <div class="sidebar-projects">
+                <div class="sidebar-projects-header">
+                    <h1 class="sidebar-projects-title">Projects</h1>
+                    <i class="fa-solid fa-circle-plus add-project-modal"></i>
+                </div>
+                <div class="sidebar-seperator"></div>
+                <div class="sidebar-projects-list">
+                    <!-- JS GENERATED -->
+                </div>
             </div>
+                <!-- <a href="#" class="sidebar-project"></a>
+                <i class="fa-solid fa-screwdriver-wrench sidebar-project sidebar-project-icon"></i>
+                <p></p>
+                <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-pen-to-square"></i> -->
         </nav>
-        
-        <div class="right-container"></div>
+
+        <!-- RIGHT SIDE -->
+    <main>
+        <div class="todo-header">
+                <h1>
+                    <span class="todo-header-title"></span>
+                </h1>
+            </div>
+        <div class="todo-item-list">
+            <!-- JS GENERATED -->
+        </div>
     </main>
+    
+        <!-- PROJECT MODAL  -->
+    <div id="project-modal" class="modal hide">
+        <div class="modal-box">
+            <div class="modal-header">
+                <i class="close close-x fa-solid fa-circle-xmark"></i>
+                <h2 class="project-modal-title"></h2>
+            </div>
+            <div class="modal-content">
+                <form id="project-form" name="project-form" method="post">
+
+                    <div>
+                        <label for="form-project-title" id="form-label">Project title:</label>
+                        <input type="text" id="form-project-title" name="project-title" autocomplete="off" placeholder="e.g Holiday">
+                        <span class="form-error project-title-error hide">Please enter a title.</span>
+                    </div>
+
+                    <div class="form-radio">
+                        <p>Project Icon</p>
+                        <div id="project-icons">
+                            <label class="radio radio-before">
+                                <span class="radio-input">
+                                    <input type="radio" name="project-icon" id="project-circle" value="fa-circle" checked>
+                                    <span class="radio-control"><i class="fa-regular fa-circle"></i></span>
+                                </span>
+                            </label>
+                            <label class="radio radio-before">
+                                <span class="radio-input">
+                                    <input type="radio" name="project-icon" id="project-home" value="fa-home">
+                                    <span class="radio-control"><i class="fa-solid fa-house"></i></span>
+                                </span>
+                            </label>
+                            <label class="radio radio-before">
+                                <span class="radio-input">
+                                    <input type="radio" name="project-icon" id="project-graduation-cap" value="fa-graduation-cap">
+                                    <span class="radio-control"><i class="fa-solid fa-graduation-cap"></i></span>
+                                </span>
+                            </label>
+                            <label class="radio radio-before">
+                                <span class="radio-input">
+                                    <input type="radio" name="project-icon" id="project-pencil" value="fa-pencil">
+                                    <span class="radio-control"><i class="fa-solid fa-pencil"></i></span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-radio">
+                        <p>Project colour</p>
+                        <div id="project-colors">
+                            <label class="radio radio-before">
+                                <span class="radio-input">
+                                    <input type="radio" id="project-blue" name="project-color" value="project-blue" checked>
+                                    <span class="radio-control"><i class="fa-regular fa-circle project-blue"></i></span>
+                                </span>
+                            </label>
+                            <label class="radio radio-before">
+                                <span class="radio-input">
+                                    <input type="radio" id="project-red" name="project-color" value="project-red">
+                                    <span class="radio-control"><i class="fa-regular fa-circle project-red"></i></span>
+                                </span>
+                            </label>
+                            <label class="radio radio-before">
+                                <span class="radio-input">
+                                    <input type="radio" id="project-green" name="project-color" value="project-green">
+                                    <span class="radio-control"><i class="fa-regular fa-circle project-green"></i></span>
+                                </span>
+                            </label>
+                            <label class="radio radio-before">
+                                <span class="radio-input">
+                                    <input type="radio" id="project-yellow" name="project-color" value="project-yellow">
+                                    <span class="radio-control"><i class="fa-regular fa-circle project-yellow"></i></span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="modal-seperator"></div>
+
+                    <div class="button-right">
+                        <button class="button close cancel" type="button">Cancel</button><button id="project-button" class="button" type="submit" href="#"></button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK MODAL -->
+        <divi
+        
+        <!-- CONFIRM MODALd="task-modal" class="modal hide"> -->
+            <div class="modal-box">
+                <div class="modal-header">
+                    <i class="close close-x fa-solid fa-circle-xmark"></i>
+                    <h2></h2>
+                </div>
+                <div class="modal-content">
+                    <form id="task-form" name="task-form" method="post">
+
+                        <div>
+                            <label id="form-label" for="form-task-title">Task title: </label>
+                            <input type="text" id="form-task-title" name="task-title" placeholder="Task Title..." autocomplete="off"/>
+                            <span class="form-error task-title-error hide">Please enter a task title.</span>
+                        </div>
+                        <br>
+                        <div>
+                            <label id="form-label" for="form-task-priority">Priority:</label>
+                            <select id="form-task-priority" name="task-priority">
+                                <option value="" disabled selected>Select priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label id="form-label "for="form-task-schedule">Due Date:</label>
+                            <input type="date" id="form-task-schedule" name="task-schedule" autocomplete="off">
+                        </div>
+
+                        <div id="select-project">
+                            <!-- JS GENERATED -->
+                        </div>
+                        <span class="form-error task-project-error hide">This field can't be empty.</span>
+
+                        <div class="modal-seperator"></div>
+
+                        <div class="button-right">
+                            <button class="button close cancel" type="button">Cancel</button><button id="task-button" class="button" type="submit" href="#"></button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONFIRM MODAL -->
+        <div id="confirm-modal" class="modal hide">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <i class="close close-x fa-solid fa-circle-xmark"></i>
+                    <h2 class="confirm-modal-content"></h2>
+                </div>
+                <div class="confirm-modal-content">
+
+                    <p class="confirm-modal-content"></p>
+
+                    <div class="modal-seperator"></div>
+
+                    <div class="button-right">
+                        <button class="button close cancel" type="button">Cancel</button><button id="confirm-button" class="button" type="submit" href="#">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     
     <footer class="footer">
         Built by <a class="footer-link" href="https://github.com/curveservices" target="_blank">Rozla-Dev</a>
@@ -44,6 +234,6 @@
         Source </a><i class="fa-brands fa-github"></i>
     </footer>
    
-<script src="./main.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
