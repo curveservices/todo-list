@@ -1,50 +1,57 @@
-export default class Task {
-    constructor(title, notes, dueDate, priority) {
-        this.title = title,
-        this.notes = notes,
-        this.dueDate = dueDate,
-        this.priority = priority 
-    console.log("Called Task... get and set title, notes due date & priority");
-    console.log('Pushing the title name of task to the taskArray...');
-    return
+import projects from './Projects'
+import UI from './UI'
+
+const tasks = (() => {
+    class Task {
+        constructor(title, priority, schedule) {
+            this.title = title;
+            this.priority = priority;
+            this.schedule = schedule;
+        }
     };
 
-    setTitle(title) {
-        this.title = title
+    function createTask(projectIndex, title, priority = '', schedule = '', link = projectIndex) {
+        const newtask = new Task(title, priority, schedule);
+        projects.projectsList[projectIndex].tasks.push(newtask);
+        if (Number.isNaN(parseInt(link, 10))) {
+            UI.changeLink(link);;
+        } else {
+            UI.renderTasks(projectIndex);
+        }
+        localStorage.setItem('projects', JSON.stringify(projects.projectsList));
     }
 
-    getTitle() {
-        return this.getTitle
+    function toggleTask(projectIndex, taskIndex, link = projectIndex) {
+        if (projects.projectsList[projectIndex].tasks[taskIndex].done) {
+            projects.projectsList[projectIndex].tasks[taskIndex].done = false;
+        } else {
+            projects.projectsList[projectIndex].ttasks[taskIndex].done = true;
+        }
+        UI.renderTasks(link);
+        localStorage.setItem('projects', JSON.stringify(projects.projectsList));
     }
 
-    setNotes(notes) {
-        this.notes = notes
+    function editTask(projectIndex, taskIndex, title, priority,schedule, link = projectIndex) {
+        projects.projectsList[projectIndex].tasks[taskIndex].title = title;
+        projects.projectsList[projectIndex].tasks[taskIndex].priority = priority;
+        projects.projectsList[projectIndex].tasks[taskIndex].schedule = schedule;
+        UI.renderTasks(link);
+        localStorage.setItem('projects', JSON.stringify(projects.projectsList));
     }
 
-    getNotes() {
-        return this.getNotes
+    function removeTask(projectIndex, taskIndex, link = projectIndex) {
+        projects.projectsList[projectIndex].tasks.splice(taskIndex, 1);
+        UI.hideElement(UI.modals);
+        UI.renderTasks(link);
+        localStorage.setItem('projects', JSON.stringify(projects.projectsList));
     }
 
-    setDate(dueDate) {
-        this.dueDate = dueDate
+    return {
+        createTask,
+        toggleTask,
+        editTask,
+        removeTask,
     }
+})();
 
-    getDate() {
-        return this.dueDate
-    }
-
-    getDateFormatted() {
-        const day = this.dueDate.split('/')[0]
-        const month = this.dueDate.split('/')[1]
-        const year = this.dueDate.split('/')[2]
-        return `${day}/${month}/${year}`
-    }
-
-    setPriority(priority) {
-        this.priority = priority
-    }
-
-    getPriority() {
-        return this.priority
-    }  
-}
+export default tasks;
