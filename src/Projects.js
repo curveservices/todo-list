@@ -1,54 +1,67 @@
-import { toDate, isToday, isThisWeek, subDays } from 'date-fns'
+import UI from "./UI";
 
-export default class Project {
-    constructor(name) {
-        this.name = name 
-        this.tasks = []
-    }
+const projects = (() => {
+    let projectsList = []
 
-    setname(name) {
-        this.name = name
-    }
-
-    getname() {
-        return this.name
-    }
-
-    setTasks(tasks) {
-        this.tasks = tasks
-    }
-
-    getTasks() {
-        this.tasks = this.tasks
+    //storage
+    if (localStorage.getItem('projects') === null) {
+        projectsList = [
+            {
+                title: 'Demo Project',
+                icon: 'fa-pencil',
+                color: 'project-blue',
+                tasks: [],
+            },
+        ];
+    } else {
+        const projectsFromStorage = JSON.parse(localStorage.getItem('projects'));
+        projectsList = projectsFromStorage;
     }
 
-    getTask(taskName) {
-        return this.tasks.find((task) => task.getName() === taskName)
+    class Project {
+        constructor(title, icon, color) {
+            this.title = title;
+            this.icon = icon;
+            this.color = color;
+            this.tasks = [];
+        }
+    };
+
+    function createProject(title, icon, color) {
+        const newProject = new Project(title, icon, color);
+        projectsList.push(newProject);
+        UI.renderProjects();
+        UI.changeLink(projectsList.length - 1);
+        localStorage.setItem('projects', JSON.stringify(projectsList));
     }
 
-    contains(taskName) {
-        return this.task.some((task) => task.getName() === newTask.name)
+    function editProject(title, icon, color, link) {
+        projectsList[index].title = title;
+        projectsList[index].icon = icon;
+        projectsList[index].color = color;
+        UI.renderProjects();
+        if (link === undefined) {
+            UI.changeLink(index);
+        } else {
+            UI.changeLink(link);
+        }
+        localStorage.setItem('projects', JSON.stringify(projectsList));
     }
 
-    addTask(newTask) {
-        if (this.tasks.find((task) => task.getName() === newTask.name))
-        this.tasks.push(newTask)
+    function removeProject(index) {
+        projectsList.splice(index, 1);
+        UI.hideElement(UI.modals);
+        UI.renderProjects();
+        UI.changeLink('inbox');
+        localStorage.setItem('projects', JSON.stringify(projectsList));
     }
 
-    deleteTask(taskname) {
-        this.tasks = this.tasks.filter((task) => task.name !== taskname)
+    return {
+        projectsList,
+        createProject,
+        editProject,
+        removeProject,
     }
-    getTasksToday() {
-        return this.tasks.filter((task) => {
-            const taskDate = new Date(task.getDateFormatted())
-            return isToday(toDate(taskDate))
-        })
-    }
+})();
 
-    getTaskThisWeek() {
-        return this.tasks.filter((task) => {
-            const taskDate = new Date(task.getDateFormatted())
-            return isThisWeek(subDays(toDate(taskDate), 1))
-        })
-    }
-}
+export default projects;
