@@ -12,7 +12,10 @@
 <body>
     
     <header>
-        <i class="fa-solid fa-bars toggle-sidebar"></i><i class="fa-solid fa-pen-to-square"></i><h2 class="logo"></h2>To Do List</h2>
+        <div class="logo">
+            <i class="fa-solid fa-bars toggle-sidebar"></i><i class="fa-solid fa-pen-to-square"></i>
+            <h2>To Do List</h2>
+        </div>
         <div class="switch-container">
             <i class="fa-solid fa-sun" id="toggle-dark"></i>
         </div>  
@@ -42,6 +45,7 @@
                     Completed
                 </a>
             </div>
+
             <!-- SIDEBAR PROJECTS -->
             <div class="sidebar-projects">
                 <div class="sidebar-projects-header">
@@ -53,11 +57,12 @@
                     <!-- JS GENERATED -->
                 </div>
             </div>
-                <!-- <a href="#" class="sidebar-project"></a>
-                <i class="fa-solid fa-screwdriver-wrench sidebar-project sidebar-project-icon"></i>
-                <p></p>
-                <i class="fa-solid fa-trash"></i>
-                <i class="fa-solid fa-pen-to-square"></i> -->
+
+            <footer class="footer">
+                Built by <a class="footer-link" href="https://github.com/curveservices" target="_blank">Rozla-Dev</a>
+                | <a class="footer-link" href="https://github.com/curveservices/Library" target="_blank" >
+                Source </a><i class="fa-brands fa-github"></i>
+            </footer>
         </nav>
 
         <!-- RIGHT SIDE -->
@@ -123,7 +128,7 @@
                         <div id="project-colors">
                             <label class="radio radio-before">
                                 <span class="radio-input">
-                                    <input type="radio" id="project-blue" name="project-color" value="project-blue" checked>
+                                    <input type="radio" id="project-blue" name="project-color" value="project-blue">
                                     <span class="radio-control"><i class="fa-regular fa-circle project-blue"></i></span>
                                 </span>
                             </label>
@@ -160,13 +165,11 @@
     </div>
 
     <!-- TASK MODAL -->
-        <divi
-        
-        <!-- CONFIRM MODALd="task-modal" class="modal hide"> -->
+        <div id="task-modal" class="modal hide">
             <div class="modal-box">
                 <div class="modal-header">
                     <i class="close close-x fa-solid fa-circle-xmark"></i>
-                    <h2></h2>
+                    <h2 class="task-modal-title"></h2>
                 </div>
                 <div class="modal-content">
                     <form id="task-form" name="task-form" method="post">
@@ -213,7 +216,7 @@
             <div class="modal-box">
                 <div class="modal-header">
                     <i class="close close-x fa-solid fa-circle-xmark"></i>
-                    <h2 class="confirm-modal-content"></h2>
+                    <h2 class="confirm-modal-title"></h2>
                 </div>
                 <div class="confirm-modal-content">
 
@@ -222,18 +225,11 @@
                     <div class="modal-seperator"></div>
 
                     <div class="button-right">
-                        <button class="button close cancel" type="button">Cancel</button><button id="confirm-button" class="button" type="submit" href="#">Remove</button>
+                        <button class="button close cancel" type="button">Cancel</button><button id="confirm-button" class="button" type="submit" href="">Remove</button>
                     </div>
                 </div>
             </div>
         </div>
-    
-    <footer class="footer">
-        Built by <a class="footer-link" href="https://github.com/curveservices" target="_blank">Rozla-Dev</a>
-        | <a class="footer-link" href="https://github.com/curveservices/Library" target="_blank" >
-        Source </a><i class="fa-brands fa-github"></i>
-    </footer>
-   
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
