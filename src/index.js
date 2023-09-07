@@ -1,3 +1,8 @@
-import { pageLoad } from './UI'
+import  UI  from './UI'
+import handlers from './event-handlers'
 
-pageLoad();
+UI.responsiveSidebar();
+UI.renderProjects();
+UI.changeLink('inbox');
+
+handlers.listenClicks();
