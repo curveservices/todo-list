@@ -50,6 +50,14 @@ header {
     gap: 2rem;
 }
 
+.hide { display: none; }
+
+.display { display: block; }
+
+.main-dark {
+    background-color: #00000080;
+}
+
 nav  {
     display: flex;
     flex-flow: column wrap;
@@ -61,15 +69,36 @@ nav  {
 }
 
 .sidebar {
-    width: 300px;
-    height: calc(100vh - 60px);
+    width: 25vw;
+    height: 100vh;
     padding: 40px 20px 0;
-    background-color: var(--light-grey);
-    position: fixed;
+    background-color: var(--light-nav);
+    position:absolute;
     overflow: auto;
     -webkit-transition: transform .2s;
     transition: transform .2s;
     z-index: 10;
+  }
+
+  .sidebar-show {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+  }
+
+  .sidebar-hide {
+    -webkit-transform: translateX(-500px);
+    transform: translateX(-500px);
+  }
+
+  .toggle-sidebar {
+    display: none !important;
+    padding: 4px 6px;
+    margin-right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    -webkit-transition: all .2s;
+    transition: all .2s;
   }
 
   .sidebar-project-nav {
@@ -87,6 +116,10 @@ nav  {
     -webkit-transition: all .2s;
     transition: all .2s;
     z-index: 0;
+  }
+
+  .main-mobile {
+    margin-left: 0;
   }
 
 .tab {
@@ -123,8 +156,6 @@ nav  {
 }
 
 /* Pop up modal */
-
-
 .modal-box { 
     transform: scale(0);
     transition: 0.2s ease-in-out;
@@ -205,24 +236,27 @@ span {
 .fa-circle-plus {
     transition: 1.5s ease;}
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 /* Footer */
 footer {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    position:fixed;
-    bottom: 0;
+    position: fixed;
+    bottom: 0; */
     gap: 2rem;
-    background: var(--light-header);
-    font-family: 'Rock Salt', sans-serif;
-    font-size: 1rem;
-    margin: 0;
-    width: 100vw;
-    height: 6vh;
+    font-family: inherit;
+    
+   
+    
 }
 
 .footer-link {
     font-family: 'Rock Salt', cursive;
     text-decoration: none;
-    color: var(--opposite-light);
+    font-size: 12px;
+    color: var(--light-header);
 }
