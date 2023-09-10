@@ -9,7 +9,7 @@ const tasks = (() => {
             this.schedule = schedule;
         }
     };
-
+ 
     function createTask(projectIndex, title, priority = '', schedule = '', link = projectIndex) {
         const newtask = new Task(title, priority, schedule);
         projects.projectsList[projectIndex].tasks.push(newtask);

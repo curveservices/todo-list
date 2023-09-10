@@ -18,14 +18,14 @@ const UI = (() => {
     const formTaskProjectError = document.querySelector('.task-project-error');
 
     function responsiveSidebar() {
-        if (window.innerWidth <= 1015) {
+        if (window.innerWidth <= 940) {
             sidebar.classList.remove('sidebar-show');
             sidebar.classList.add('sidebar-hide');
             main.classList.add('main-mobile');
         } else {
             sidebar.classList.remove('sidebar-hide')
             sidebar.classList.add('sidebar-show');
-            main.classList.remove('main-mobile', 'main-dark');
+            main.classList.remove('main-mobile', 'main-blur');
         }
     };
 
@@ -33,11 +33,11 @@ const UI = (() => {
         if (!sidebar.classList,contains('sidebar-show')) {
             sidebar.classList.remove('sidebar-hide');
             sidebar.classList.add('sidebar-show');
-            main.classList.add('main-dark')
+            main.classList.add('main-blur')
         } else if (sidebar.classList.contains('sidebar-show')) {
             sidebar.classList.remove('sidebar-show');
             sidebar.classList.add('sidebar-hide');
-            main.classList.remove('main-dark')
+            main.classList.remove('main-blur')
         }
     };
 
@@ -266,7 +266,7 @@ const UI = (() => {
 
         const inboxLink = document.querySelector('.link-inbox');
         const todayLink = document.querySelector('.link-today');
-        const weekLiink = document.querySelector('.link-weeek');
+        const weekLink = document.querySelector('.link-week');
         const importantLink = document.querySelector('.link-important');
         const completedLink = document.querySelector('.link-completed');
         const projectLinks = document.querySelectorAll('.a.sidebar-project')
@@ -280,7 +280,7 @@ const UI = (() => {
         } else if (projectIndex === 'today') {
             todayLink.classList.add('active');
         } else if (projectIndex === 'week') {
-            weekLiink.classList.add('active');
+            weekLink.classList.add('active');
         } else if (projectIndex === 'important') {
             importantLink.classList.add('active');
         } else if (projectIndex === 'completed') {
@@ -364,7 +364,7 @@ const UI = (() => {
                     }
                     todoItem.appendChild(taskTitle);
                     //date
-                    if (projects.projectsList[j].tasks[i],schedule !== '') {
+                    if (projects.projectsList[j].tasks[i].schedule !== '') {
                         const taskDate = document.createElement('div');
                         taskDate.classList.add(
                             'todo-item-date',

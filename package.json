@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "bootstrap-icons": "^1.10.5",
-    "date-fns": "^2.30.0"
+    "date-fns": "^2.30.0",
+    "modern-normalize": "^2.0.0"
   }
 }

@@ -6,3 +6,5 @@ UI.renderProjects();
 UI.changeLink('inbox');
 
 handlers.listenClicks();
+handlers.resizeHandler();
+handlers.keyboardHandler();
