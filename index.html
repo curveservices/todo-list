@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
     <link rel="icon" href="data:image/svg+xml, <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📂</text></svg>">
     <script src="https://kit.fontawesome.com/e4551d0d55.js" crossorigin="anonymous"></script>
     <title>to do list</title>
@@ -14,7 +13,7 @@
     
     <header>
         <div class="logo">
-            <i class="fa-solid fa-bars toggle-sidebar"></i><i class="fa-solid fa-pen-to-square"></i>
+            <i class="fa-solid fa-bars toggle-sidebar"></i>
             <h2>To Do List</h2>
         </div>
         <div class="switch-container">
@@ -29,7 +28,7 @@
                     <i class="fa-solid fa-inbox sidebar-link link-inbox sidebar-link-icon"></i>
                     Inbox
                 </a>
-                <a href="#" class="sidebar-link link-today tab ">
+                <a href="#" class="sidebar-link link-today tab">
                     <i class="fa-solid fa-calendar-day sidebar-link link-today sidebar-link-icon"></i>
                     Today
                 </a>
@@ -70,7 +69,7 @@
     <main>
         <div class="todo-header">
                 <h1>
-                    <span class="todo-header-title"></span>
+                    <h1 class="todo-header-title"></h1>
                 </h1>
             </div>
         <div class="todo-item-list">
@@ -94,7 +93,7 @@
                         <span class="form-error project-title-error hide">Please enter a title.</span>
                     </div>
 
-                    <div class="form-radio">
+                    <!-- <div class="form-radio">
                         <p>Project Icon</p>
                         <div id="project-icons">
                             <label class="radio radio-before">
@@ -122,14 +121,14 @@
                                 </span>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-radio">
                         <p>Project colour</p>
                         <div id="project-colors">
                             <label class="radio radio-before">
                                 <span class="radio-input">
-                                    <input type="radio" id="project-blue" name="project-color" value="project-blue">
+                                    <input type="radio" id="project-blue" name="project-color" value="project-blue" checked>
                                     <span class="radio-control"><i class="fa-regular fa-circle project-blue"></i></span>
                                 </span>
                             </label>
@@ -173,14 +172,13 @@
                     <h2 class="task-modal-title"></h2>
                 </div>
                 <div class="modal-content">
-                    <form id="task-form" name="task-form" method="post">
-
+                    <form id="task-form" name="task-form" method="POST">
                         <div>
                             <label id="form-label" for="form-task-title">Task title: </label>
                             <input type="text" id="form-task-title" name="task-title" placeholder="Task Title..." autocomplete="off"/>
                             <span class="form-error task-title-error hide">Please enter a task title.</span>
                         </div>
-                        <br>
+
                         <div>
                             <label id="form-label" for="form-task-priority">Priority:</label>
                             <select id="form-task-priority" name="task-priority">
@@ -206,7 +204,7 @@
                         <div class="button-right">
                             <button class="button close cancel" type="button">Cancel</button><button id="task-button" class="button" type="submit" href="#"></button>
                         </div>
-
+                        
                     </form>
                 </div>
             </div>
