@@ -4,14 +4,13 @@ import tasks from "./Tasks";
 
 const validation = (() => {
     function addProject(event) {
-        const projectTitle = document.forms['project-form']['project-totle'].value
-        const projectIcon = document.forms['project-form']['project-icon'].value
+        const projectTitle = document.forms['project-form']['project-title'].value
         const projectColor = document.forms['project-form']['project-color'].value
         
         event.preventDefault();
 
-        if (projectTitle != '') {
-           projects.createProject(projectTitle, projectIcon, projectColor)
+        if (projectTitle !== '') {
+           projects.createProject(projectTitle, projectColor)
            UI.hideElement(UI.formProjectTitleError)
            UI.hideElement(UI.modals)
         } else if (projectTitle === '') {
@@ -21,23 +20,22 @@ const validation = (() => {
 
     function editProject(event, index, link) {
         const projectTitle = document.forms['project-form']['project-title'].value
-        const projectIcon = document.forms['project-form']['project-icon'].value
-        const projectColor = document.forms['project-form']['project-color'].value
+        const projectColor = document.forms['project-form']['project-color'].value;
 
         event.preventDefault();
 
-        if (projectTitle != '') {
+        if (projectTitle !== '') {
             projects.editProject(
                 index,
+                link,
                 projectTitle,
-                projectIcon,
-                projectColor,
-                link
+                projectColor
+                
             )
             UI.hideElement(UI.formProjectTitleError)
             UI.hideElement(UI.modals)
         } else if (projectTitle === '') {
-            UI.showElement(UI.formProjectTitleError)
+            UI.showElement(UI.formProjectTitleError);
         }
     }
 
@@ -107,9 +105,8 @@ const validation = (() => {
         addProject,
         editProject,
         addTask,
-        editProject
-    }
-
+        editTask
+    };
 })();
 
 export default validation;

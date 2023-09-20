@@ -7,38 +7,35 @@ const projects = (() => {
     if (localStorage.getItem('projects') === null) {
         projectsList = [
             {
-                title: 'Demo Project',
-                icon: 'fa-pencil',
-                color: 'project-blue',
-                tasks: [],
-            },
-        ];
+                title:'Demo Project',
+                color:'project-blue',
+                tasks:[],
+            }
+        ]
     } else {
         const projectsFromStorage = JSON.parse(localStorage.getItem('projects'));
         projectsList = projectsFromStorage;
     }
 
     class Project {
-        constructor(title, icon, color) {
+        constructor(title, color) {
             this.title = title;
-            this.icon = icon;
-            this.color = color;
+            this.color = color
             this.tasks = [];
         }
     };
 
-    function createProject(title, icon, color) {
-        const newProject = new Project(title, icon, color);
+    function createProject(title, color) {
+        const newProject = new Project(title, color);
         projectsList.push(newProject);
         UI.renderProjects();
         UI.changeLink(projectsList.length - 1);
         localStorage.setItem('projects', JSON.stringify(projectsList));
-    }
+    };
 
-    function editProject(title, icon, color, link) {
+    function editProject(index, title, color, link) {
         projectsList[index].title = title;
-        projectsList[index].icon = icon;
-        projectsList[index].color = color;
+        projectsList[index].color = color
         UI.renderProjects();
         if (link === undefined) {
             UI.changeLink(index);

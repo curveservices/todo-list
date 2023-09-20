@@ -5,14 +5,14 @@ const UI = (() => {
     const body = document.querySelector('body');
     const sidebar = document.querySelector('.sidebar');
     const main = document.querySelector('main');
-    const projectList = document.querySelector('.sidebar-projects-list');
+    const projectsList = document.querySelector('.sidebar-projects-list');
     const taskList = document.querySelector('.todo-item-list');
-    const projectModal = document.getElementById('project-modal');
-    const taskModal = document.getElementById('task-modal');
-    const confirmModal = document.getElementById('confirm-modal');
-    const modals = document.querySelector('.modal');
-    const projectForm = document.getElementById('project-form');
-    const taskForm = document.getElementById('task-form');
+    const projectModal = document.querySelector('#project-modal');
+    const taskModal = document.querySelector('#task-modal');
+    const confirmModal = document.querySelector('#confirm-modal');
+    const modals = document.querySelectorAll('.modal');
+    const projectForm = document.querySelector('#project-form');
+    const taskForm = document.querySelector('#task-form');
     const formProjectTitleError = document.querySelector('.project-title-error');
     const formTaskTitleError = document.querySelector('.task-title-error');
     const formTaskProjectError = document.querySelector('.task-project-error');
@@ -30,14 +30,14 @@ const UI = (() => {
     };
 
     function toggleSidebar() {
-        if (!sidebar.classList,contains('sidebar-show')) {
-            sidebar.classList.remove('sidebar-hide');
-            sidebar.classList.add('sidebar-show');
-            main.classList.add('main-blur')
+        if (!sidebar.classList.contains('sidebar-show')) {
+          sidebar.classList.remove('sidebar-hide');
+          sidebar.classList.add('sidebar-show');
+          main.classList.add('main-blur');
         } else if (sidebar.classList.contains('sidebar-show')) {
-            sidebar.classList.remove('sidebar-show');
-            sidebar.classList.add('sidebar-hide');
-            main.classList.remove('main-blur')
+          sidebar.classList.remove('sidebar-show');
+          sidebar.classList.add('sidebar-hide');
+          main.classList.remove('main-blur');
         }
     };
 
@@ -57,21 +57,15 @@ const UI = (() => {
             modalSubmit.classList.remove('edit-project');
             modalSubmit.classList.add('add-project');
         } else if (modal === 'editProject') {
-            const currentProjectTitle = projects.projectsList[index].title;
-            const currentProjectIcon = projects.projectsList[index].icon;
-            const currentProjecttColor = projects.projectsList[index].color;
-
-            const projectTitle = document.getElementById('form-project-title');
-            const projectIcon = document.querySelector(
-                `input[value=${currentProjectIcon}]`
-            );
+            const currentProjectTitle = projects.projectsList[index].title
+            const currentProjecttColor = projects.projectsList[index].color
+            const projectTitle = document.getElementById('form-project-title')
             const projectColor = document.querySelector(
                 `input[value=${currentProjecttColor}]`
             );
 
-            projectTitle.value = currentProjectTitle;
-            projectIcon.checked = true;
-            projectColor.check = true;
+            projectTitle.value = currentProjectTitle
+            projectColor.check = true
 
             modalHeading.textContent = 'Edit project';
             modalSubmit.textContent = 'Edit';
@@ -122,16 +116,17 @@ const UI = (() => {
                     select.appendChild(newOption);
                 }
             }
+
             modalSubmit.textContent = 'Add';
             modalSubmit.classList.remove('edit-task');
             modalSubmit.classList.add('add-task');
-        } else if (modal === 'editTask');{
-            const currentTaskTitle = 
-                projects.projectsList[projectIndex].task[taskIndex].title;
+        } else if (modal === 'editTask') {
+            const currentTaskTitle =
+            projects.projectsList[projectIndex].tasks[taskIndex].title;
             const currentTaskPriority = 
-                projects.projectsList[projectIndex].task[taskIndex].priority;
+            projects.projectsList[projectIndex].tasks[taskIndex].priority;
             const cuurrentTaskSchedule = 
-                projects.projectsList[projectIndex].task[taskIndex].schedule;
+            projects.projectsList[projectIndex].tasks[taskIndex].schedule;
 
                 const taskTitle = document.getElementById('form-task-title');
                 const taskPriority = document.getElementById('form-task-priority');
@@ -139,9 +134,9 @@ const UI = (() => {
 
                 modalHeading.textContent = 'Edit task';
 
-                taskTitle = currentTaskTitle;
-                taskPriority = currentTaskPriority;
-                taskSchedule = cuurrentTaskSchedule;
+                taskTitle.value = currentTaskTitle;
+                taskPriority.value = currentTaskPriority;
+                taskSchedule.value = cuurrentTaskSchedule;
 
                 selectProject.innerText = '';
                 const label = document.createElement('label');
@@ -165,8 +160,7 @@ const UI = (() => {
                 modalSubmit.textContent = 'Edit';
                 modalSubmit.classList.remove('add-task');
                 modalSubmit.classList.add('edit-task');
-        }
-
+        };
     };
 
     function displayConfirmModal(modal, projectIndex, taskIndex) {
@@ -227,33 +221,23 @@ const UI = (() => {
 
     function renderProjects() {
         //create link
-        projects.textContent = '';
+        projectsList.textContent = '';
         for (let i = 0; i < projects.projectsList,length; i += 1) {
             const projectLink = document.createElement('a');
-            projectLink.classList.add('sidebar-peoject');
+            projectLink.classList.add('sidebar-project');
             projectLink.setAttribute('href', '#');
             projectLink.setAttribute('data-index', i);
-            projectList.appendChild(projectLink);
-            //Icon
-            const projectIcon = document.createElement('i')
-            projectIcon.classList.add(
-                'fa-regular',
-                projects.projectsList[i].icon,
-                'fa-solid',
-                projects.projectsList[i].color,
-                'sidebar-project',
-                'sidebar-project-icon'
-            );
-            projectLink.appendChild(projectIcon);
+            projectsList.appendChild(projectLink);
+           
             //title
             const projectTitle = document.createElement('p');
             projectTitle.classList.add('sidebar-project');
             projectTitle.innerText = projects.projectsList[i].title;
             projectLink.appendChild(projectTitle);
             //trash icon
-            const projectTrashIcon = document.createElement('i');
-            projectTrashIcon.classList.add('fa-solid', 'fa-trash', 'remove-project-modal');
-            projectLink.appendChild(projectTrashIcon);
+            const projectRemoveIcon = document.createElement('i');
+            projectRemoveIcon.classList.add('fa-solid', 'fa-trash', 'remove-project-modal');
+            projectLink.appendChild(projectRemoveIcon);
             // edit icon
             const projectEditIcon = document.createElement('i');
             projectEditIcon.classList.add('fa-solid', 'fa-pen-to-square', 'edit-project-modal');
@@ -262,31 +246,32 @@ const UI = (() => {
     };
 
     function selectLink(projectIndex) {
-        const allLinks = document.querySelectorAll('.a.sidebar-project', 'a.sidebar-link');
-
+        const allLinks = document.querySelectorAll(
+          'a.sidebar-project, a.sidebar-link'
+        );
         const inboxLink = document.querySelector('.link-inbox');
         const todayLink = document.querySelector('.link-today');
         const weekLink = document.querySelector('.link-week');
         const importantLink = document.querySelector('.link-important');
         const completedLink = document.querySelector('.link-completed');
-        const projectLinks = document.querySelectorAll('.a.sidebar-project')
-        allLinks.forEach((element) => {
-            element.classList.remove('active');
+        const projectLinks = document.querySelectorAll('a.sidebar-project');
+        allLinks.forEach((elem) => {
+          elem.classList.remove('active');
         });
         if (typeof projectIndex === 'number') {
-            projectLinks[projectIndex].classList.add('active');
+          projectLinks[projectIndex].classList.add('active');
         } else if (projectIndex === 'inbox') {
-            inboxLink.classList.add('active');
+          inboxLink.classList.add('active');
         } else if (projectIndex === 'today') {
-            todayLink.classList.add('active');
+          todayLink.classList.add('active');
         } else if (projectIndex === 'week') {
-            weekLink.classList.add('active');
+          weekLink.classList.add('active');
         } else if (projectIndex === 'important') {
-            importantLink.classList.add('active');
+          importantLink.classList.add('active');
         } else if (projectIndex === 'completed') {
-            completedLink.classList.add('active');
+          completedLink.classList.add('active');
         }
-    };
+      }
 
     function renderHeader(projectIndex) {
         const headerTitle = document.querySelector('.todo-header-title');
@@ -305,7 +290,7 @@ const UI = (() => {
     function renderTasks(projectIndex) {
         let indexStart;
         let indexEnd;
-        const currentDate = format(new Date(), 'dd-mm-yyyy');
+        const currentDate = format(new Date(), 'yyyy-MM-dd');
 
         taskList.textContent = '';
         if (projects.projectsList.length >= 1) {
@@ -323,6 +308,20 @@ const UI = (() => {
                         projects.projectsList[j].tasks[i].schedule !== currentDate
                     ) {
                         continue;
+                    } else if (
+                        projectIndex === 'week' &&
+                        !(
+                          differenceInDays(
+                            parseISO(projects.projectsList[j].tasks[i].schedule),
+                            parseISO(currentDate)
+                          ) >= 0 &&
+                          differenceInDays(
+                            parseISO(projects.projectsList[j].tasks[i].schedule),
+                            parseISO(currentDate)
+                          ) <= 7
+                        )
+                      ) {
+                        continue;    
                     } else if (
                         projectIndex === 'important' &&
                         projects.projectsList[j].tasks[i].priority !== 'high'
@@ -343,7 +342,7 @@ const UI = (() => {
                     taskIcon.classList.add('fa-solid', 'fa-regular', 'toggle-task');
                     if (projects.projectsList[j].tasks[i].priority === 'low') {
                         taskIcon.classList.add('project-green');
-                    } else if (projects.projectsList[j].task[i].priority === 'medium') {
+                    } else if (projects.projectsList[j].tasks[i].priority === 'medium') {
                         taskIcon.classList.add('project-yellow');
                     } else if (projects.projectsList[j].tasks[i].priority === 'high') {
                         taskIcon.classList.add('project-red');
@@ -400,18 +399,18 @@ const UI = (() => {
                     todoItem.append(taskTrashIcon);
                 }
             }
-            //task line
-            const addTask = document.createElement('div');
-            addTask.setAttribute('data-project-index', projectIndex);
-            addTask.classList.add('todo-item-add', 'add-task-modal');
-            taskList.appendChild(addTask);
-            const addTaskIcon = document.createElement('i');
-            addTaskIcon.classList.add('fa-solid', 'fa-circle-plus', 'add-task-modal');
-            taskList.appendChild(addTaskIcon);
-            const addTaskTitle = document.createElement('p');
-            addTaskTitle.classList.add('todo-item-title', 'add-task-modal');
-            addTaskTitle.textContent = 'Add new task';
-            addTask.appendChild(addTaskTitle)
+            //Add task line
+            const taskAdd = document.createElement('div');
+            taskAdd.setAttribute('data-project-index', projectIndex);
+            taskAdd.classList.add('todo-item-add', 'add-task-modal');
+            taskList.appendChild(taskAdd);
+            const taskAddIcon = document.createElement('i');
+            taskAddIcon.classList.add('fa-solid', 'fa-circle-plus', 'add-task-modal');
+            taskAdd.appendChild(taskAddIcon);
+            const taskAddTitle = document.createElement('p');
+            taskAddTitle.classList.add('todo-item-title', 'add-task-modal');
+            taskAddTitle.textContent = 'Add new task';
+            taskAdd.appendChild(taskAddTitle)
         } else {
             //no project warning
             const addTask = document.createElement('div');
@@ -433,9 +432,9 @@ const UI = (() => {
     };
 
     function changeLink(projectIndex) {
-        selectLink(projectIndex)
-        renderHeader(projectIndex)
-        renderTasks(projectIndex)
+        selectLink(projectIndex);
+        renderHeader(projectIndex);
+        renderTasks(projectIndex);
     }
 
     return {

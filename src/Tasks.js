@@ -10,9 +10,15 @@ const tasks = (() => {
         }
     };
  
-    function createTask(projectIndex, title, priority = '', schedule = '', link = projectIndex) {
-        const newtask = new Task(title, priority, schedule);
-        projects.projectsList[projectIndex].tasks.push(newtask);
+    function createTask(
+        projectIndex, 
+        title, 
+        priority = '', 
+        schedule = '', 
+        link = projectIndex
+        ) {
+        const newTask = new Task(title, priority, schedule);
+        projects.projectsList[projectIndex].tasks.push(newTask);
         if (Number.isNaN(parseInt(link, 10))) {
             UI.changeLink(link);;
         } else {
