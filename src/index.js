@@ -5,6 +5,6 @@ UI.responsiveSidebar();
 UI.renderProjects();
 UI.changeLink('inbox');
 
-handlers.listenClicks();
 handlers.resizeHandler();
+handlers.listenClicks();
 handlers.keyboardHandler();
