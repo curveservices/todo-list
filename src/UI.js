@@ -18,7 +18,7 @@ const UI = (() => {
     const formTaskProjectError = document.querySelector('.task-project-error');
 
     function responsiveSidebar() {
-        if (window.innerWidth <= 940) {
+        if (window.innerWidth <= 900) {
             sidebar.classList.remove('sidebar-show');
             sidebar.classList.add('sidebar-hide');
             main.classList.add('main-mobile');
@@ -43,7 +43,7 @@ const UI = (() => {
 
     function displayProjectModal(modal, index = false) {
         const modalHeading = document.querySelector('.project-modal-title');
-        const modalSubmit = document.getElementById('project-button');
+        const modalSubmit = document.querySelector('#project-button');
 
         projectForm.reset();
         UI.hideElement(UI.formProjectTitleError);
@@ -58,14 +58,20 @@ const UI = (() => {
             modalSubmit.classList.add('add-project');
         } else if (modal === 'editProject') {
             const currentProjectTitle = projects.projectsList[index].title
+            const curentProjectIcon = projects.projectsList[index].icon
             const currentProjecttColor = projects.projectsList[index].color
-            const projectTitle = document.getElementById('form-project-title')
+
+            const projectTitle = document.querySelector('#form-project-title')
+            const projectIcon = document.querySelector(
+                `input[value=${curentProjectIcon}]`
+                )
             const projectColor = document.querySelector(
                 `input[value=${currentProjecttColor}]`
             );
 
-            projectTitle.value = currentProjectTitle
-            projectColor.check = true
+            projectTitle.value = currentProjectTitle;
+            projectIcon.checked = true;
+            projectColor.checked = true;
 
             modalHeading.textContent = 'Edit project';
             modalSubmit.textContent = 'Edit';
@@ -76,8 +82,8 @@ const UI = (() => {
 
     function displayTaskModal(modal, projectIndex, taskIndex = false) {
         const modalHeading = document.querySelector('.task-modal-title');
-        const selectProject = document.getElementById('select-project');
-        const modalSubmit = document.getElementById('task-button');
+        const selectProject = document.querySelector('#select-project');
+        const modalSubmit = document.querySelector('#task-button');
 
         taskForm.reset();
         UI.hideElement(UI.formTaskTitleError);
@@ -121,52 +127,52 @@ const UI = (() => {
             modalSubmit.classList.remove('edit-task');
             modalSubmit.classList.add('add-task');
         } else if (modal === 'editTask') {
-            const currentTaskTitle =
-            projects.projectsList[projectIndex].tasks[taskIndex].title;
+            const currentTaskTitle = 
+                projects.projectsList[projectIndex].tasks[taskIndex].title;
             const currentTaskPriority = 
-            projects.projectsList[projectIndex].tasks[taskIndex].priority;
+                projects.projectsList[projectIndex].tasks[taskIndex].priority;
             const cuurrentTaskSchedule = 
-            projects.projectsList[projectIndex].tasks[taskIndex].schedule;
+                projects.projectsList[projectIndex].tasks[taskIndex].schedule;
 
-                const taskTitle = document.getElementById('form-task-title');
-                const taskPriority = document.getElementById('form-task-priority');
-                const taskSchedule = document.getElementsByTagName('form-task-schedule');
+            const taskTitle = document.querySelector('#form-task-title');
+            const taskPriority = document.querySelector('#form-task-priority');
+            const taskSchedule = document.querySelector('#form-task-schedule');
 
-                modalHeading.textContent = 'Edit task';
+            modalHeading.textContent = 'Edit task';
 
-                taskTitle.value = currentTaskTitle;
-                taskPriority.value = currentTaskPriority;
-                taskSchedule.value = cuurrentTaskSchedule;
+            taskTitle.value = currentTaskTitle;
+            taskPriority.value = currentTaskPriority;
+            taskSchedule.value = cuurrentTaskSchedule;
 
-                selectProject.innerText = '';
-                const label = document.createElement('label');
-                label.id = 'form-label';
-                label.innerText = 'Project'
-                label.setAttribute('for', 'form-task-project');
-                selectProject.appendChild(label);
+            selectProject.innerText = '';
+            const label = document.createElement('label');
+            label.id = 'form-label';
+            label.innerText = 'Project'
+            label.setAttribute('for', 'form-task-project');
+            selectProject.appendChild(label);
 
-                const select = document.createElement('select');
-                select.id = 'form-task-project';
-                select.disabled = true;;
-                selectProject.appendChild(select);
+            const select = document.createElement('select');
+            select.id = 'form-task-project';
+            select.disabled = true;
+            selectProject.appendChild(select);
 
-                const option = document.createElement('option');
-                option.setAttribute('value', '');
-                option.selected = true;
-                option.innerText = projects.projectsList[projectIndex].title;
+            const option = document.createElement('option');
+            option.setAttribute('value', '');
+            option.selected = true;
+            option.innerText = projects.projectsList[projectIndex].title;
 
-                select.appendChild(option);
+            select.appendChild(option);
 
-                modalSubmit.textContent = 'Edit';
-                modalSubmit.classList.remove('add-task');
-                modalSubmit.classList.add('edit-task');
+            modalSubmit.textContent = 'Edit';
+            modalSubmit.classList.remove('add-task');
+            modalSubmit.classList.add('edit-task');
         };
     };
 
     function displayConfirmModal(modal, projectIndex, taskIndex) {
         const modalHeading = document.querySelector('.confirm-modal-title');
         const modalContent = document.querySelector('.confirm-modal-content');
-        const modalSubmit = document.getElementById('confirm-button');
+        const modalSubmit = document.querySelector('#confirm-button');
         const modalContentPrefix = document.createTextNode(
             'You going to remove '
         );
@@ -180,10 +186,10 @@ const UI = (() => {
 
         title.classList.add('confirm-modal-title');
 
-        modalContent = '';
+        modalContent.textContent = '';
 
         if (modal === 'removeProject') {
-            modalHeading.textContent = 'Remove task';
+            modalHeading.textContent = 'Remove project';
             title.textContent = projects.projectsList[projectIndex].title;
             modalContent.appendChild(modalContentPrefix);
             modalContent.appendChild(title);
@@ -222,13 +228,23 @@ const UI = (() => {
     function renderProjects() {
         //create link
         projectsList.textContent = '';
-        for (let i = 0; i < projects.projectsList,length; i += 1) {
+        for (let i = 0; i < projects.projectsList.length; i += 1) {
             const projectLink = document.createElement('a');
             projectLink.classList.add('sidebar-project');
             projectLink.setAttribute('href', '#');
             projectLink.setAttribute('data-index', i);
             projectsList.appendChild(projectLink);
-           
+            //Icon
+            const projectIcon = document.createElement('i')
+            projectIcon.classList.add(
+                'fa',
+                projects.projectsList[i].icon,
+                'fa-regular',
+                projects.projectsList[i].color,
+                'sidebar-project',
+                'sidebar-project-icon'
+            );
+            projectLink.appendChild(projectIcon);
             //title
             const projectTitle = document.createElement('p');
             projectTitle.classList.add('sidebar-project');
@@ -290,7 +306,7 @@ const UI = (() => {
     function renderTasks(projectIndex) {
         let indexStart;
         let indexEnd;
-        const currentDate = format(new Date(), 'yyyy-MM-dd');
+        const currDate = format(new Date(), 'dd-MM-yyy');
 
         taskList.textContent = '';
         if (projects.projectsList.length >= 1) {
@@ -305,7 +321,7 @@ const UI = (() => {
                 for (let i = 0; i < projects.projectsList[j].tasks.length; i +=1) {
                     if (
                         projectIndex === 'today' &&
-                        projects.projectsList[j].tasks[i].schedule !== currentDate
+                        projects.projectsList[j].tasks[i].schedule !== currDate
                     ) {
                         continue;
                     } else if (
@@ -313,11 +329,11 @@ const UI = (() => {
                         !(
                           differenceInDays(
                             parseISO(projects.projectsList[j].tasks[i].schedule),
-                            parseISO(currentDate)
+                            parseISO(currDate)
                           ) >= 0 &&
                           differenceInDays(
                             parseISO(projects.projectsList[j].tasks[i].schedule),
-                            parseISO(currentDate)
+                            parseISO(currDate)
                           ) <= 7
                         )
                       ) {
@@ -337,9 +353,10 @@ const UI = (() => {
                     todoItem.classList.add('todo-item', 'toggle-task');
                     todoItem.setAttribute('data-project-index', j);
                     todoItem.setAttribute('data-task-index', i);
+                    taskList.appendChild(todoItem);
                     //icon
                     const taskIcon = document.createElement('i');
-                    taskIcon.classList.add('fa-solid', 'fa-regular', 'toggle-task');
+                    taskIcon.classList.add('fa-regular', 'toggle-task');
                     if (projects.projectsList[j].tasks[i].priority === 'low') {
                         taskIcon.classList.add('project-green');
                     } else if (projects.projectsList[j].tasks[i].priority === 'medium') {
@@ -370,6 +387,8 @@ const UI = (() => {
                             'todo-item-pill',
                             'toggle-task'
                         );
+                        taskDate.textContent = projects.projectsList[j].tasks[i].schedule
+                        todoItem.appendChild(taskDate)
                     }
                     //project name
                     const taskProject = document.createElement('p');
@@ -413,21 +432,21 @@ const UI = (() => {
             taskAdd.appendChild(taskAddTitle)
         } else {
             //no project warning
-            const addTask = document.createElement('div');
-            addTask.classList.add('todo-item-add', 'add-project-modal');
-            taskList.appendChild(addTask);
-            const addTaskIcon = document.createElement('i');
-            addTaskIcon.classList.add(
-                'fa-regular',
-                'fa-cicle-exclamation',
+            const taskAdd = document.createElement('div');
+            taskAdd.classList.add('todo-item-add', 'add-project-modal');
+            taskList.appendChild(taskAdd);
+            const taskAddIcon = document.createElement('i');
+            taskAddIcon.classList.add(
+                'fa-solid',
+                'fa-circle-exclamation',
                 'project-red',
                 'add-project-modal'
-            )
-            addTask.appendChild(addTaskIcon);
-            const addTaskTitle = document.createElement('p');
-            addTaskTitle.classList.add('todo-item-title', 'add-project-modal');
-            addTaskTitle.textContent = "You don't have any projects, create one."
-            addTask.appendChild(addTaskTitle);
+            );
+            taskAdd.appendChild(taskAddIcon);
+            const taskAddTitle = document.createElement('p');
+            taskAddTitle.classList.add('todo-item-title', 'add-project-modal');
+            taskAddTitle.textContent = "You have no projects, create one."
+            taskAdd.appendChild(taskAddTitle);
         }
     };
 
@@ -443,8 +462,8 @@ const UI = (() => {
         confirmModal,
         modals,
         formProjectTitleError,
-        formTaskProjectError,
         formTaskTitleError,
+        formTaskProjectError,
         responsiveSidebar,
         toggleSidebar,
         displayProjectModal,
