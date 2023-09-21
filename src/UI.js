@@ -306,7 +306,7 @@ const UI = (() => {
     function renderTasks(projectIndex) {
         let indexStart;
         let indexEnd;
-        const currDate = format(new Date(), 'yyyy-mm-dd');
+        const currDate = format(new Date(), 'yyyy-MM-dd');
 
         taskList.textContent = '';
         if (projects.projectsList.length >= 1) {
