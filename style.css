@@ -197,10 +197,13 @@ nav  {
     border-radius: var(--border-radius);
 }
 
-
-
 .sidebar-projects-list {
     padding: 1em;
+}
+
+.sidebar-project-nav i,
+.sidebar-projects-list i:not(.remove-project-modal) {
+  margin-right: 10px;
 }
 
 .project-icon-and-text {
