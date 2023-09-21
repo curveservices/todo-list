@@ -306,7 +306,7 @@ const UI = (() => {
     function renderTasks(projectIndex) {
         let indexStart;
         let indexEnd;
-        const currDate = format(new Date(), 'dd-MM-yyy');
+        const currDate = format(new Date(), 'yyyy-mm-dd');
 
         taskList.textContent = '';
         if (projects.projectsList.length >= 1) {
@@ -356,7 +356,7 @@ const UI = (() => {
                     taskList.appendChild(todoItem);
                     //icon
                     const taskIcon = document.createElement('i');
-                    taskIcon.classList.add('fa-regular', 'toggle-task');
+                    taskIcon.classList.add('fa-solid', 'toggle-task');
                     if (projects.projectsList[j].tasks[i].priority === 'low') {
                         taskIcon.classList.add('project-green');
                     } else if (projects.projectsList[j].tasks[i].priority === 'medium') {
@@ -454,7 +454,7 @@ const UI = (() => {
         selectLink(projectIndex);
         renderHeader(projectIndex);
         renderTasks(projectIndex);
-    }
+    };
 
     return {
         body,

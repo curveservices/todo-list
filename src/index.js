@@ -8,3 +8,4 @@ UI.changeLink('inbox');
 handlers.resizeHandler();
 handlers.listenClicks();
 handlers.keyboardHandler();
+handlers.darkHandler();

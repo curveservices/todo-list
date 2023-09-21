@@ -146,10 +146,36 @@ const handlers = (() => {
         window.addEventListener('resize', UI.responsiveSidebar)
     };
 
+    function darkHandler() {
+        const toggle = document.getElementById('toggle-dark');
+        const body = document.querySelector('body');
+        const header = document.querySelector('header');
+
+        toggle.addEventListener('click', () => {
+        toggle.classList.toggle('fa-moon')   
+            if (toggle.classList.toggle('fa-sun')) {
+                body.style.background = 'var(--light-background)';
+                body.style.color = 'black';
+                body.style.transition = '0.2s';
+                header.style.background = 'var(--light-header)';
+                
+                // modals.style.background = 'var(--light-background)';
+            } else {
+                body.style.background = 'var(--dark-background)';
+                body.style.color = 'white';
+                body.style.transition = '0.2s';
+                // modals.style.background = 'var(--dark-background)';
+                header.style.background = 'var(--dark-header)';
+               
+            }
+        })
+    }
+
     return {
         keyboardHandler,
         resizeHandler,
         listenClicks,
+        darkHandler,
     }
 })();
 
