@@ -31,13 +31,13 @@ const tasks = (() => {
         if (projects.projectsList[projectIndex].tasks[taskIndex].done) {
             projects.projectsList[projectIndex].tasks[taskIndex].done = false;
         } else {
-            projects.projectsList[projectIndex].ttasks[taskIndex].done = true;
+            projects.projectsList[projectIndex].tasks[taskIndex].done = true;
         }
         UI.renderTasks(link);
         localStorage.setItem('projects', JSON.stringify(projects.projectsList));
     }
 
-    function editTask(projectIndex, taskIndex, title, priority,schedule, link = projectIndex) {
+    function editTask(projectIndex, taskIndex, title, priority ,schedule, link = projectIndex) {
         projects.projectsList[projectIndex].tasks[taskIndex].title = title;
         projects.projectsList[projectIndex].tasks[taskIndex].priority = priority;
         projects.projectsList[projectIndex].tasks[taskIndex].schedule = schedule;
