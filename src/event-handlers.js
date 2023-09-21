@@ -79,7 +79,7 @@ const handlers = (() => {
                     e.target.parentElement.getAttribute('data-task-index'),
                     10
                 )
-                UI.displayConfirmModal('editTask', projectIndex, taskIndex)
+                UI.displayTaskModal('editTask', projectIndex, taskIndex)
                 //Remove task modal open
             } else if (e.target.classList.contains('remove-task-modal')) {
                 projectIndex = parseInt(
@@ -99,7 +99,7 @@ const handlers = (() => {
                 UI.hideElement(UI.modals)
                 //Add project
             } else if (e.target.classList.contains('add-project')) {
-                validation.addProject(e)
+                validation.addProject(e);
                 //Edit project
             } else if (e.target.classList.contains('edit-project')) {
                 validation.editProject(e, projectIndex,link)
