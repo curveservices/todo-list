@@ -19,7 +19,7 @@ const validation = (() => {
     }
 
     function editProject(event, index, link) {
-        const projectTitle = document.forms['project-form']['project-title'].value
+        const projectTitle = document.forms['project-form']['project-title'].value;
         const projectColor = document.forms['project-form']['project-color'].value;
 
         event.preventDefault();
@@ -27,10 +27,9 @@ const validation = (() => {
         if (projectTitle !== '') {
             projects.editProject(
                 index,
-                link,
                 projectTitle,
-                projectColor
-                
+                projectColor,
+                link, 
             )
             UI.hideElement(UI.formProjectTitleError)
             UI.hideElement(UI.modals)
@@ -49,14 +48,14 @@ const validation = (() => {
         if (Number.isNaN(projectIndex)) {
             taskProject = parseInt(
                 document.forms['task-form']['task-project'].value,10
-            )
+            );
         } else {
             taskProject = projectIndex;
         }
 
         event.preventDefault();
 
-        if (taskTitle != '' && !Number.isNaN(taskProject)) {
+        if (taskTitle !== '' && !Number.isNaN(taskProject)) {
             tasks.createTask(
                 taskProject,
                 taskTitle,
@@ -85,7 +84,8 @@ const validation = (() => {
         const taskSchedule = document.forms['task-form']['task-schedule'].value
 
         event.preventDefault()
-        if (taskTitle != '') {
+
+        if (taskTitle !== '') {
             tasks.editTask(
                 projectIndex,
                 taskIndex,

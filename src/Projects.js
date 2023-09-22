@@ -8,7 +8,6 @@ const projects = (() => {
         projectsList = [
             {
                 title:'Demo Project',
-                icon: 'fa-house',
                 color:'project-blue',
                 tasks:[],
             },
@@ -19,26 +18,24 @@ const projects = (() => {
     }
 
     class Project {
-        constructor(title, icon, color) {
+        constructor(title, color) {
             this.title = title;
-            this.icon = icon;
-            this.color = color
+            this.color = color;
             this.tasks = [];
         }
     };
 
-    function createProject(title, icon, color) {
-        const newProject = new Project(title, icon, color);
+    function createProject(title, color) {
+        const newProject = new Project(title, color);
         projectsList.push(newProject);
         UI.renderProjects();
         UI.changeLink(projectsList.length - 1);
         localStorage.setItem('projects', JSON.stringify(projectsList));
       }
 
-    function editProject(index, title, icon, color, link) {
-        projectsList[index].title = title;
-        projectsList[index].icon = icon;
-        projectsList[index].color = color;
+    function editProject(index, title, color, link) {
+        projectsList[index].title = title
+        projectsList[index].color = color
         UI.renderProjects();
         if (link === undefined) {
             UI.changeLink(index);

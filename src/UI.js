@@ -57,26 +57,20 @@ const UI = (() => {
             modalSubmit.classList.remove('edit-project');
             modalSubmit.classList.add('add-project');
         } else if (modal === 'editProject') {
-            const currentProjectTitle = projects.projectsList[index].title
-            const curentProjectIcon = projects.projectsList[index].icon
-            const currentProjecttColor = projects.projectsList[index].color
-
-            const projectTitle = document.querySelector('#form-project-title')
-            const projectIcon = document.querySelector(
-                `input[value=${curentProjectIcon}]`
-                )
+            const currentProjectTitle = projects.projectsList[index].title;
+            const currentProjectColor = projects.projectsList[index].color;
+            const projectTitle = document.querySelector('#form-project-title');
             const projectColor = document.querySelector(
-                `input[value=${currentProjecttColor}]`
+                `input[value=${currentProjectColor}]`
             );
 
-            projectTitle.value = currentProjectTitle;
-            projectIcon.checked = true;
-            projectColor.checked = true;
+            projectTitle.value = currentProjectTitle
+            projectColor.checked = true
 
-            modalHeading.textContent = 'Edit project';
+            modalHeading.textContent = 'Edit Project';
             modalSubmit.textContent = 'Edit';
             modalSubmit.classList.remove('add-project');
-            modals.classList.add('edit-project')
+            modalSubmit.classList.add('edit-project');
         }
     };
 
