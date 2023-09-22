@@ -4,7 +4,7 @@ import tasks from "./Tasks";
 
 const validation = (() => {
     function addProject(event) {
-        const projectTitle = document.forms['project-form']['project-title'].value
+        const projectTitle = document.forms['project-form']['project-title'].value;
         
         event.preventDefault();
 
