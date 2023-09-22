@@ -1,109 +1,172 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Titillium+Web:wght@600&display=swap');
 
 :root {
-    --light-background: #ffffff;
-    --dark-background: #636363;
-    --light-header: #9f41a8;
-    --dark-header: #613c65;
-    --light-nav: #a5a5a5;
-    --dark-nav: #8d8d8d;
-    --opposite-light: #1eb31e;
-    --opposite-dark: #5d9457;
-    --error-red: #d03535;
-    --button-light: #e7e7e7;
-    --border-radius: 10px;
-    --box-shadow: 18px 12px 12px 6px rgba(0, 0, 0, 0.5);
+  --light-background: linear-gradient(90deg, #777777, 40%, #ffffff);
+  --dark-background: linear-gradient(90deg, #303030, 40%, #636363);
+  --light-header: linear-gradient(90deg, #9f41a8, 40%, #ed63f9);
+  --dark-header:linear-gradient(90deg, #533356, 40%, #86568b);
+  --light-nav: #aeaeae;
+  --error-red: #d03535;
+  --button-light: #cecece;
+  --border-radius: 10px;
+  --box-shadow: 18px 12px 12px 6px rgba(0, 0, 0, 0.5);
 
 }
 
 *,
 *:before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
-    background: var(--light-background);
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 1em;
+  background: var(--light-background);
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1em;
+}
+
+i {
+  cursor: pointer;
 }
 
 .project-blue { color:blue; }
 .project-red { color: red; }
 .project-green { color: green; }
-.project-yellow { color: yellow}
+.project-yellow { color: orange; }
 
 .hide { display: none; }
 .display { display: block; }
 
+/* header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
-    height: 8vw; 
+    width: 100%;
+    height: 60px; 
     background: var(--light-header);
     padding: 0rem 5rem 0rem 3rem;
 }
 
-/* header title */
-.logo {
-    display: flex;
-    align-items: center;
-    font-weight: 900;
-    font-size: 20px;
-    gap: 2rem;
-}
-
-nav  {
-    display: flex;
-    flex-flow: column wrap;
-    background: var(--light-nav);
-    height: 100vh;
-    margin: 0rem;
-    padding: 1rem;    
-}
 .toggle-sidebar {
-    display: none !important;
-    padding: 4px 6px;
-    margin-right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all .2s;
-  }
+  display: none !important;
+  padding: 4px 6px;
+  margin-right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all .2s;
+}
 
 .toggle-sidebar:hover {
-    background-color: #d03535;
-    transition: all 0.2s;
+  background: var(--light-nav);
+  transition: all 0.1s;
+}
+/* Header title */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  font-size: 20px;
+  gap: 2rem;
+}
+
+/* Sidebar */
+nav  {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100vh;
+  margin: 0rem;
+  padding: 1rem;    
 }
 
 .sidebar {
-    width: 25vw;
-    height: 100vh;
-    padding: 40px 20px 0;
-    background-color: var(--light-nav);
-    position:absolute;
-    overflow: auto;
-    transition: transform .2s;
-    z-index: 10;
+  width: 300px;
+  max-height: 100vh;
+  padding: 40px 20px 0;
+  background-color: var(--light-nav);
+  position: fixed;
+  overflow: auto;
+  transition: transform .2s;
+  z-index: 20;
+  border-right: 1px solid var(--light-nav);
   }
 
-  .sidebar-show {
-    transform: translateX(0);
-  }
+.tab {
+  display: flex;
+  align-items: center;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1em;
+  gap: 1em;
+  height: 3rem;
+  width: 100%;
+  cursor: pointer;
+}
 
-  .sidebar-hide {
-    transform: translateX(-500px);
-  }
+.tab:hover,
+.tab:active {
+  background: var(--button-light);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
 
-  .sidebar-project-nav {
-    display: flex;
-    flex-flow: column wrap;
-    justify-items: center;
-    padding: 1em;
-    gap: 1em;
+.tab:focus {
+  background: var(--dark-background);
+  border-radius: var(--border-radius);
+  color: white;
+}
+
+.sidebar-projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding: 0.5em;
+  margin-left: 0.5em;
+}
+
+.sidebar-project {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  height: inherit;
+  text-transform: capitalize;
+}
+
+.project-icon-container {
+  display: flex;
+  gap: 1em;
+}
+
+.sidebar-show {
+  transform: translateX(0);
+}
+
+.sidebar-hide {
+  transform: translateX(-500px);
+}
+
+/* Footer */
+footer {
+  background: inherit;
+  position: fixed;
+  top: 37em;
+  height: 40px;
+  width: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  transition: all 0.2s;
+  word-spacing: 2px;
+}
+
+.footer-link {
+  font-family: 'Rock Salt', cursive;
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--light-header);
 }
 
 /* main */
@@ -175,35 +238,6 @@ nav  {
 .todo-item-date {
     background: var(--light-header);
     color: var(--button-light);
-}
-
-/* sidebar */
-.tab {
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: inherit;
-    padding: 1em;
-    gap: 1em;
-    height: 3rem;
-    width: 100%;
-}
-
-.tab:hover,
-.tab:active {
-    background: #b6b6b6;
-    border-radius: var(--border-radius);
-}
-
-.sidebar-projects-list {
-    padding: 1em;
-}
-
-.sidebar-project-nav i,
-.sidebar-projects-list i:not(.remove-project-modal) {
-  margin-right: 10px;
 }
 
 .project-icon-and-text {
@@ -299,23 +333,6 @@ span {
 a {
     text-decoration: none;
     color: inherit;
-}
-/* Footer */
-footer {
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 0; */
-    gap: 2rem;
-    font-family: inherit;
-}
-
-.footer-link {
-    font-family: 'Rock Salt', cursive;
-    text-decoration: none;
-    font-size: 12px;
-    color: var(--light-header);
 }
 
 /* Form styling */
