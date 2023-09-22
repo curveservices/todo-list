@@ -5,12 +5,11 @@ import tasks from "./Tasks";
 const validation = (() => {
     function addProject(event) {
         const projectTitle = document.forms['project-form']['project-title'].value
-        const projectColor = document.forms['project-form']['project-color'].value
         
         event.preventDefault();
 
         if (projectTitle !== '') {
-           projects.createProject(projectTitle, projectColor)
+           projects.createProject(projectTitle)
            UI.hideElement(UI.formProjectTitleError)
            UI.hideElement(UI.modals)
         } else if (projectTitle === '') {
@@ -20,7 +19,6 @@ const validation = (() => {
 
     function editProject(event, index, link) {
         const projectTitle = document.forms['project-form']['project-title'].value;
-        const projectColor = document.forms['project-form']['project-color'].value;
 
         event.preventDefault();
 
@@ -28,7 +26,6 @@ const validation = (() => {
             projects.editProject(
                 index,
                 projectTitle,
-                projectColor,
                 link, 
             )
             UI.hideElement(UI.formProjectTitleError)
