@@ -50,10 +50,10 @@
             <!-- SIDEBAR PROJECTS -->
             <div class="sidebar-projects">
                 <div class="sidebar-projects-header">
-                    <h1 class="sidebar-projects-title">Projects</h1>
+                    <h2 class="sidebar-projects-title">Projects</h2>
                     <i class="fa-solid fa-circle-plus add-project-modal"></i>
                 </div>
-                <br>
+                
                 <div class="sidebar-projects-list"></div>
                     <!-- JS GENERATED -->
                 
@@ -82,20 +82,16 @@
     <div id="project-modal" class="modal hide">
         <div class="modal-box">
             <div class="modal-header">
-                <i class="close close-x fa-solid fa-circle-xmark"></i>
                 <h2 class="project-modal-title"></h2>
+                <i class="close close-x fa-solid fa-circle-xmark"></i>
             </div>
             <div class="modal-content">
                 <form id="project-form" name="project-form" method="post">
-
                     <div>
                         <label for="form-project-title" id="form-label">Project title:</label>
                         <input type="text" id="form-project-title" name="project-title" autocomplete="off" placeholder="e.g Holiday">
-                        <span class="form-error project-title-error hide">Please enter a title.</span>
+                        <p class="form-error project-title-error hide">Please enter a title.</p>
                     </div>
-
-                    <div class="modal-seperator"></div>
-
                     <div class="button-right">
                         <button class="button close cancel" type="button">Cancel</button><button id="project-button" class="button" type="submit" href="#"></button>
                     </div>
@@ -109,17 +105,16 @@
         <div id="task-modal" class="modal hide">
             <div class="modal-box">
                 <div class="modal-header">
-                    <i class="close close-x fa-solid fa-circle-xmark"></i>
                     <h2 class="task-modal-title"></h2>
+                    <i class="close close-x fa-solid fa-circle-xmark"></i>
                 </div>
                 <div class="modal-content">
                     <form id="task-form" name="task-form" method="POST">
                         <div>
                             <label id="form-label" for="form-task-title">Task title: </label>
                             <input type="text" id="form-task-title" name="task-title" placeholder="Task Title..." autocomplete="off"/>
-                            <span class="form-error task-title-error hide">Please enter a task title.</span>
+                            <p class="form-error task-title-error hide">Please enter a task title.</p>
                         </div>
-
                         <div>
                             <label id="form-label" for="form-task-priority">Priority:</label>
                             <select id="form-task-priority" name="task-priority">
@@ -129,7 +124,6 @@
                                 <option value="high">High</option>
                             </select>
                         </div>
-
                         <div>
                             <label id="form-label "for="form-task-schedule">Due Date:</label>
                             <input type="date" id="form-task-schedule" name="task-schedule" autocomplete="off">
@@ -138,10 +132,7 @@
                         <div id="select-project">
                             <!-- JS GENERATED -->
                         </div>
-                        <span class="form-error task-project-error hide">This field can't be empty.</span>
-
-                        <div class="modal-seperator"></div>
-
+                        <p class="form-error task-project-error hide">This field can't be empty.</p>
                         <div class="button-right">
                             <button class="button close cancel" type="button">Cancel</button><button id="task-button" class="button" type="submit" href="#"></button>
                         </div>
@@ -155,15 +146,11 @@
         <div id="confirm-modal" class="modal hide">
             <div class="modal-box">
                 <div class="modal-header">
-                    <i class="close close-x fa-solid fa-circle-xmark"></i>
                     <h2 class="confirm-modal-title"></h2>
+                    <i class="close close-x fa-solid fa-circle-xmark"></i>
                 </div>
                 <div class="modal-content">
-
                     <p class="confirm-modal-content"></p>
-
-                    <div class="modal-seperator"></div>
-
                     <div class="button-right">
                         <button class="button close cancel" type="button">Cancel</button><button id="confirm-button" class="button" type="submit" href="">Remove</button>
                     </div>
