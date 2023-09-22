@@ -16,7 +16,7 @@ const UI = (() => {
     const formProjectTitleError = document.querySelector('.project-title-error');
     const formTaskTitleError = document.querySelector('.task-title-error');
     const formTaskProjectError = document.querySelector('.task-project-error');
-
+//span
     function responsiveSidebar() {
         if (window.innerWidth <= 960) {
             sidebar.classList.remove('sidebar-show');
@@ -166,7 +166,7 @@ const UI = (() => {
         const modalContentPostfix = document.createTextNode(
             '. This action cannot be undone.'
         );
-        const title = document.createElement('span');
+        const title = document.createElement('p');
 
         confirmModal.classList.remove('hide');
         confirmModal.classList.add('display');
@@ -223,7 +223,7 @@ const UI = (() => {
             projectsList.appendChild(projectLink)
             //title
             const projectTitle = document.createElement('p');
-            projectTitle.classList.add('sidebar-project');
+            projectTitle.classList.add('sidebar-project-title');
             projectTitle.innerText = projects.projectsList[i].title;
             projectLink.appendChild(projectTitle)
             //icon div
