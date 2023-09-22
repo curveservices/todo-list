@@ -18,7 +18,7 @@ const UI = (() => {
     const formTaskProjectError = document.querySelector('.task-project-error');
 
     function responsiveSidebar() {
-        if (window.innerWidth <= 900) {
+        if (window.innerWidth <= 960) {
             sidebar.classList.remove('sidebar-show');
             sidebar.classList.add('sidebar-hide');
             main.classList.add('main-mobile');
@@ -125,7 +125,7 @@ const UI = (() => {
             const taskPriority = document.querySelector('#form-task-priority');
             const taskSchedule = document.querySelector('#form-task-schedule');
 
-            modalHeading.textContent = 'Edit task';
+            modalHeading.textContent = 'Edit Task';
 
             taskTitle.value = currentTaskTitle;
             taskPriority.value = currentTaskPriority;
@@ -176,7 +176,7 @@ const UI = (() => {
         modalContent.textContent = '';
 
         if (modal === 'removeProject') {
-            modalHeading.textContent = 'Remove project';
+            modalHeading.textContent = 'Remove Project';
             title.textContent = projects.projectsList[projectIndex].title;
             modalContent.appendChild(modalContentPrefix);
             modalContent.appendChild(title);
@@ -217,7 +217,7 @@ const UI = (() => {
         projectsList.textContent = '';
         for (let i = 0; i < projects.projectsList.length; i += 1) {
             const projectLink = document.createElement('a');
-            projectLink.classList.add('sidebar-project');
+            projectLink.classList.add('sidebar-project', 'tab');
             projectLink.setAttribute('href', '#');
             projectLink.setAttribute('data-index', i);
             projectsList.appendChild(projectLink)
@@ -226,14 +226,20 @@ const UI = (() => {
             projectTitle.classList.add('sidebar-project');
             projectTitle.innerText = projects.projectsList[i].title;
             projectLink.appendChild(projectTitle)
-            //trash icon
+            //icon div
+            const projectIconDiv = document.createElement('div');
+            projectIconDiv.classList.add('project-icon-container')
+            projectIconDiv.setAttribute('href', '#');
+            projectIconDiv.setAttribute('data-index', i);
+            projectLink.appendChild(projectIconDiv)
+            //Trash icon
             const projectRemoveIcon = document.createElement('i');
             projectRemoveIcon.classList.add('fa-solid', 'fa-trash', 'remove-project-modal');
-            projectLink.appendChild(projectRemoveIcon)
+            projectIconDiv.appendChild(projectRemoveIcon)
             // edit icon
             const projectEditIcon = document.createElement('i');
             projectEditIcon.classList.add('fa-solid', 'fa-pen-to-square', 'edit-project-modal');
-            projectLink.appendChild(projectEditIcon)
+            projectIconDiv.appendChild(projectEditIcon)
         }
     };
 
