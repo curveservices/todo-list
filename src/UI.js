@@ -58,15 +58,8 @@ const UI = (() => {
             modalSubmit.classList.add('add-project');
         } else if (modal === 'editProject') {
             const currentProjectTitle = projects.projectsList[index].title;
-            const currentProjectColor = projects.projectsList[index].color;
-            const projectTitle = document.querySelector('#form-project-title');
-            const projectColor = document.querySelector(
-                `input[value=${currentProjectColor}]`
-            );
-
-            projectTitle.value = currentProjectTitle
-            projectColor.checked = true
-
+            const projectTitle = document.querySelector('#form-project-title')
+            projectTitle.value = currentProjectTitle;
             modalHeading.textContent = 'Edit Project';
             modalSubmit.textContent = 'Edit';
             modalSubmit.classList.remove('add-project');
@@ -227,31 +220,20 @@ const UI = (() => {
             projectLink.classList.add('sidebar-project');
             projectLink.setAttribute('href', '#');
             projectLink.setAttribute('data-index', i);
-            projectsList.appendChild(projectLink);
-            //Icon
-            const projectIcon = document.createElement('i')
-            projectIcon.classList.add(
-                'fa',
-                projects.projectsList[i].icon,
-                'fa-regular',
-                projects.projectsList[i].color,
-                'sidebar-project',
-                'sidebar-project-icon'
-            );
-            projectLink.appendChild(projectIcon);
+            projectsList.appendChild(projectLink)
             //title
             const projectTitle = document.createElement('p');
             projectTitle.classList.add('sidebar-project');
             projectTitle.innerText = projects.projectsList[i].title;
-            projectLink.appendChild(projectTitle);
+            projectLink.appendChild(projectTitle)
             //trash icon
             const projectRemoveIcon = document.createElement('i');
             projectRemoveIcon.classList.add('fa-solid', 'fa-trash', 'remove-project-modal');
-            projectLink.appendChild(projectRemoveIcon);
+            projectLink.appendChild(projectRemoveIcon)
             // edit icon
             const projectEditIcon = document.createElement('i');
             projectEditIcon.classList.add('fa-solid', 'fa-pen-to-square', 'edit-project-modal');
-            projectLink.appendChild(projectEditIcon);
+            projectLink.appendChild(projectEditIcon)
         }
     };
 
