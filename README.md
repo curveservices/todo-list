@@ -1,11 +1,10 @@
-# 🚫 UNDER CONSTRUCTION 🚫
-
 # Project: To Do List
 
-## Live Demo 👉 To Do List Application
+## Live Demo 👉 <a href="https://curveservices.github.io/todo-list/" target="blank">To Do List Application</a>
 
 ## PC View 👇
 
+![Screenshot 2023-09-23 at 13 42 25](https://github.com/curveservices/todo-list/assets/101556296/9c5c2fd5-34d8-41c2-8297-211f7f07ae36)
 
 ## Overview
 
@@ -32,14 +31,14 @@
 
 
 ## Extra
-
+-
 ## Languages & Tools
 
 <a href="https://javascript.info/"><img width="100" alt="Javascript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" /></a> <a href="https://html.com/html5/"><img width="100" alt="HTML5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" /></a> <a href="https://css3.com/"><img width="100" alt="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" /></a> <a href="https://webpack.js.org/"><img width="100" alt="webpack" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" /></a> <img width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" /> 
           
 
 
-***<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 00-00-2023***
+***<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 23-09-2023***
 
 
-[Back to top 👆](#project)
+[Back to top 👆](# Project: To Do List)
