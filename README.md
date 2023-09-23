@@ -4,7 +4,9 @@
 
 ## PC View 👇
 
-![Screenshot 2023-09-23 at 13 42 25](https://github.com/curveservices/todo-list/assets/101556296/9c5c2fd5-34d8-41c2-8297-211f7f07ae36)
+![Screenshot 2023-09-23 at 14 01 23](https://github.com/curveservices/todo-list/assets/101556296/68557a10-bfe0-47c0-95bf-2241ddf5443d)
+
+![Screenshot 2023-09-23 at 14 01 46](https://github.com/curveservices/todo-list/assets/101556296/95d23ae1-79e1-438c-aa8d-aa5e667c99f7)
 
 ## Overview
 
