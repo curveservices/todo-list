@@ -164,7 +164,7 @@ const UI = (() => {
             'You going to remove '
         );
         const modalContentPostfix = document.createTextNode(
-            '. This action cannot be undone.'
+            ' This action cannot be undone.'
         );
         const title = document.createElement('p');
 

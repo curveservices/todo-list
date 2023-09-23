@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Titillium+Web:wght@600&display=swap');
 
 :root {
-  --light-background: linear-gradient(90deg, #777777, 40%, #ffffff);
+  --light-background: #ffffff;
   --dark-background: linear-gradient(90deg, #303030, 40%, #636363);
   --light-header: linear-gradient(90deg, #9f41a8, 40%, #ed63f9);
   --dark-header:linear-gradient(90deg, #533356, 40%, #86568b);
@@ -217,7 +217,7 @@ main {
 
 .todo-item:hover,
 .todo-item-add:hover {
-  background: grey;
+  background: var(--button-light);
   border-radius: var(--border-radius);
   cursor: pointer;
 }
@@ -266,7 +266,7 @@ main {
   flex-direction: column;
   transition: 0.2s ease-in-out;
   position: fixed;
-  margin: -25rem 5rem -25rem 30rem;
+  margin: -20rem 5rem -25rem 30rem;
   padding: 1rem;
   width: 20rem;
   border-radius: var(--border-radius);
@@ -275,6 +275,15 @@ main {
   background: grey;
   font-size: inherit;
   font-weight: 900;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal-header {
@@ -284,9 +293,15 @@ main {
   margin-bottom: 8px;
 }
 
-.modal-content p {
-  font-size: 0.8rem;
+.modal-content {
+  padding: 20px;
+  font-size: inherit;
+}
+
+.confirm-modal-title {
   color: var(--error-red);
+  text-transform: uppercase;
+  margin: 10px 0;
 }
 
 /* Form styling */
@@ -341,41 +356,35 @@ main {
   text-align: right;
 }
 
-.button {
+.button,
+.cancel {
   border: 1px solid #00000026;
+  background-color: var(--light-header);
   padding: 8px 14px;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s;
+  margin: 10px 0;
 }
 
-.button:hover {
-  -webkit-transition: all .2s;
+.button:hover,
+.cancel:hover {
   transition: all .2s;
+  background-color: var(--button-light);
 }
 
 #project-button,
 #task-button,
 #confirm-button {
-  background-color: var(--light-header);
+
   margin-left: 20px;
 }
 
-#project-button:hover,
+/* #project-button:hover,
 #task-button:hover,
 #confirm-button:hover {
   background-color: var(--light-header);
-}
-
-.cancel,
-button {
-  background-color: var(--light-grey);
-  color: var(--grey);
-}
-
-.cancel:hover {
-  border-color: var(--grey);
-}
+} */
 
 /* icons */
 .fa-solid,
